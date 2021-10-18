@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity(name = "notas")
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
@@ -13,9 +14,9 @@ public class Nota {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_nota;
     private String descricao;
-    private LocalDate data_compra;
+    private LocalDateTime data_compra;
     private double valor;
-    private LocalDate data_vencimento;
+    private LocalDateTime data_vencimento;
     private boolean pago;
 
     @ManyToOne
@@ -25,7 +26,7 @@ public class Nota {
     public Nota() {
     }
 
-    public Nota(Long id_nota, String descricao, LocalDate data_compra, double valor, LocalDate data_vencimento, boolean pago, Empresa empresa) {
+    public Nota(Long id_nota, String descricao, LocalDateTime data_compra, double valor, LocalDateTime data_vencimento, boolean pago, Empresa empresa) {
         this.id_nota = id_nota;
         this.descricao = descricao;
         this.data_compra = data_compra;
@@ -51,11 +52,11 @@ public class Nota {
         this.descricao = descricao;
     }
 
-    public LocalDate getData_compra() {
+    public LocalDateTime getData_compra() {
         return data_compra;
     }
 
-    public void setData_compra(LocalDate data_compra) {
+    public void setData_compra(LocalDateTime data_compra) {
         this.data_compra = data_compra;
     }
 
@@ -67,11 +68,11 @@ public class Nota {
         this.valor = valor;
     }
 
-    public LocalDate getData_vencimento() {
+    public LocalDateTime getData_vencimento() {
         return data_vencimento;
     }
 
-    public void setData_vencimento(LocalDate data_vencimento) {
+    public void setData_vencimento(LocalDateTime data_vencimento) {
         this.data_vencimento = data_vencimento;
     }
 
